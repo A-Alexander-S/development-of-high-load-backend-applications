@@ -1,0 +1,19 @@
+{
+  "name": "development-of-high-load-backend-applications",
+  "version": "1.0.0",
+  "description": "development-of-high-load-backend-applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/A-Alexander-S/development-of-high-load-backend-applications.git"
+  },
+  "author": "Akimov A.S.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/A-Alexander-S/development-of-high-load-backend-applications/issues"
+  },
+  "homepage": "https://github.com/A-Alexander-S/development-of-high-load-backend-applications#readme"
+}
