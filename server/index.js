@@ -1,18 +1,15 @@
+// console.log(process.argv);
+
 /**
  * Comparing the speed of adding, removing and searching
  * for an element (indexOf and has) in Array and Set.
 */
 
-let button = document.querySelector(".button");
-button.addEventListener("click", (e) => {
-  arraySpeedTest(array);
-  setSpeedTest(setSet);
-})
 
 let array = [];
 
 let arraySpeedTest = (array) => {
-
+  console.log("Array");
   /**
    * calculation the time of adding elements to an array
    * using the PUSH method
@@ -22,7 +19,7 @@ let arraySpeedTest = (array) => {
     array.push(i);
   }
   let endTimePush = (Date.now() - startTimePush) / 1000;
-  document.getElementById("array-push").innerHTML = endTimePush;
+  console.log(`Метод push: ${endTimePush} c`);
 
   /**
    * calculating the search time for an array element
@@ -32,7 +29,7 @@ let arraySpeedTest = (array) => {
   let startTimeIndexOf = Date.now();
   array.indexOf(100000, 0);
   let endTimeIndexOf = (Date.now() - startTimeIndexOf) / 1000;
-  document.getElementById("array-indexof").innerHTML = endTimeIndexOf;
+  console.log(`Метод indexOf: ${endTimeIndexOf} c`);
 
   /**
    * calculating the time of removal from an array of elements
@@ -43,15 +40,13 @@ let arraySpeedTest = (array) => {
     array.pop();
   }
   let endTimePop = (Date.now() - startTimePop) / 1000;
-  document.getElementById("array-pop").innerHTML = endTimePop;
-
-  // console.log(array)
+  console.log(`Метод pop: ${endTimePop} c`);
 }
 
 let setSet = new Set();
 
 let setSpeedTest = (setSet) => {
-
+  console.log("Set");
   /**
    * calculating the time of adding from an Set of elements
    * using the ADD method
@@ -61,7 +56,7 @@ let setSpeedTest = (setSet) => {
     setSet.add(i);
   }
   let endTimeAdd = (Date.now() - startTimeAdd) / 1000;
-  document.getElementById("set-add").innerHTML = endTimeAdd;
+  console.log(`Метод add: ${endTimeAdd} c`);
 
   /**
    * calculating the time of search from an Set of elements
@@ -72,7 +67,7 @@ let setSpeedTest = (setSet) => {
   setSet.has(100000);
 
   let endTimeHas = (Date.now() - startTimeHas) / 1000;
-  document.getElementById("set-has").innerHTML = endTimeHas;
+  console.log(`Метод has: ${endTimeHas} c`);
 
   /**
    * calculating the time of search from an Set of elements
@@ -83,7 +78,8 @@ let setSpeedTest = (setSet) => {
     setSet.delete(100000)
   }
   let endTimeDelete = (Date.now() - startTimeDelete) / 1000;
-  document.getElementById("set-delete").innerHTML = endTimeDelete;
+  console.log(`Метод delete: ${endTimeDelete} c`);
 }
 
-
+arraySpeedTest(array);
+setSpeedTest(setSet);
