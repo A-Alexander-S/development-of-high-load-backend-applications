@@ -2,7 +2,7 @@ import './create-news.module.scss';
 import React, { ChangeEvent } from 'react';
 
 /* eslint-disable-next-line */
-export interface CreateNewsProps {}
+export interface CreateNewsProps { }
 export interface CreateNewsState {
   title: string,
   description: string,
@@ -45,6 +45,7 @@ class CreateNews extends React.Component<CreateNewsProps, Partial<CreateNewsStat
       .catch((error) => {
         alert('Ошибка :-(');
       });
+    localStorage.removeItem("news");
   }
 
   override render() {
