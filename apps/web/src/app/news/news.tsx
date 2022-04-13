@@ -18,35 +18,37 @@ export function News(props: NewsProps) {
   }
 
   useEffect(() => {
-    //С кэшированием
-    if (localStorage.getItem("news") != null) {
 
-      let newsLocalStorage = localStorage.getItem("news")!
-      // let newsLocalStorage: string = (localStorage.getItem("news"))? localStorage.getItem("news"): ""
-      setNews(JSON.parse(newsLocalStorage));
+    // //С кэшированием
+    // if (localStorage.getItem("news") != null) {
 
-    } else {
+    //   let newsLocalStorage = localStorage.getItem("news")!
+    //   // let newsLocalStorage: string = (localStorage.getItem("news"))? localStorage.getItem("news"): ""
+    //   setNews(JSON.parse(newsLocalStorage));
 
-      fetch('http://localhost:3333/api/news')
-        .then(response => response.json())
-        .then(news => {
-          const sortedNews = sortNews(news);
+    // } else {
 
-          setNews(sortedNews);
+    //   fetch('http://localhost:3333/api/news')
+    //     .then(response => response.json())
+    //     .then(news => {
+    //       const sortedNews = sortNews(news);
 
-          localStorage.setItem("news", JSON.stringify(sortedNews));
-        })
-    }
-    // Без кэширования
-    // fetch('http://localhost:3333/api/news')
-    //   .then(response => response.json())
-    //   .then(news => {
-    //     // console.log(news)
-    //     const sortedNews = sortNews(news);
-    //     // console.log(sortedNews)
+    //       setNews(sortedNews);
 
-    //     setNews(sortedNews);
-    //   })
+    //       localStorage.setItem("news", JSON.stringify(sortedNews));
+    //     })
+    // }
+
+    //Без кэширования
+    fetch('http://localhost:3333/api/news')
+      .then(response => response.json())
+      .then(news => {
+        // console.log(news)
+        const sortedNews = sortNews(news);
+
+        setNews(sortedNews);
+      })
+
   }, []);
 
   return (

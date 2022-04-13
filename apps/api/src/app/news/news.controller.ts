@@ -48,7 +48,7 @@ export class NewsController {
   //   }
   // }
 
-  //Без кеширования
+  // Без кеширования
   @Get()
   async getNews() {
     return new Promise(resolve => {
@@ -60,10 +60,10 @@ export class NewsController {
           description: (rand => ([...Array(rand(1000))].map(() => rand(10 ** 16).toString(36).substring(rand(10))).join(' ')))(max => Math.ceil(Math.random() * max)),
           createdAt: Date.now()
         }))
-
-      setTimeout(() => {
-        resolve(news);
-      }, 100)
+      resolve(news);
+      // setTimeout(() => {
+      //   resolve(news);
+      // }, 100)
     });
   }
 
